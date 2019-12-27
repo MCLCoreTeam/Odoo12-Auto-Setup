@@ -14,21 +14,19 @@ EOF
 sudo apt-get update
 sudo apt-get -y upgrade
 sudo apt install git python3-pip build-essential wget python3-dev python3-venv python3-wheel libxslt-dev libzip-dev libldap2-dev libsasl2-dev python3-setuptools node-less
-echo "---------------"
-EOF
-echo "Create Odoo user"
-echo
+
+
 
 sudo useradd -m -d /opt/odoo12 -U -r -s /bin/bash odoo12
-EOF
+
 sudo apt install postgresql
-EOF
+
 sudo su - postgres -c "createuser -s odoo12"
-EOF
+
 wget https://builds.wkhtmltopdf.org/0.12.1.3/wkhtmltox_0.12.1.3-1~bionic_amd64.deb
-EOF
+
 sudo apt install ./wkhtmltox_0.12.1.3-1~bionic_amd64.deb
-EOF
+
 
 # Installing odoo12
 sudo mkdir /opt/odoo12
@@ -50,7 +48,6 @@ exit
 
 
 
-echo -e "$STEP_START[ Step 4.Odoo12 ]$STEP_END Odoo12 conf"
 sudo cp /opt/odoo12/odoo/debian/odoo.conf /etc/odoo12.conf
 cat << EOF > /etc/odoo12.conf
 [options]
@@ -63,7 +60,6 @@ db_password = False
 addons_path = /opt/odoo12/odoo/addons,/opt/odoo12/odoo-custom-addons
 EOF
 
-echo -e "$STEP_START[ Step 4.odoo12.service ]$STEP_END odoo12.service conf"
 cat <<EOF > /etc/systemd/system/odoo12.service
 [Unit]
 Description=Odoo12
@@ -81,13 +77,13 @@ StandardOutput=journal+console
 
 [Install]
 WantedBy=multi-user.target
-EOF
+
 
 
 sudo systemctl daemon-reload
 sudo systemctl start odoo12
 sudo systemctl enable odoo12
-EOF
+
 sudo journalctl -u odoo12
 
 echo -n "\n"
