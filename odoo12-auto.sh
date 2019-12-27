@@ -13,7 +13,7 @@ EOF
 
 sudo apt-get update
 sudo apt-get -y upgrade
-sudo apt install git python3-pip build-essential wget python3-dev python3-venv python3-wheel libxslt-dev libzip-dev libldap2-dev libsasl2-dev python3-setuptools node-less
+sudo apt install git python3-pip build-essential wget python3-dev python3-venv python3-wheel libxslt-dev libzip-dev libldap2-dev libsasl2-dev python3-setuptools node-less -y
 
 
 
@@ -33,8 +33,6 @@ sudo mkdir /opt/odoo12
 cd /opt/odoo12
 sudo wget https://download.odoocdn.com/12.0/nightly/deb/odoo_12.0.latest_all.deb
 sudo apt install ./odoo_12.0.latest_all.deb
-EOF
-sudo su - odoo12
 cd /opt/odoo12
 sudo python3 -m venv odoo-venv
 source odoo-venv/bin/activate
