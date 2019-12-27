@@ -51,10 +51,8 @@ exit
 fi
 
 echo -e "$STEP_START[ Step 4.Odoo12 ]$STEP_END Odoo12 conf"
-
 sudo cp /opt/odoo12/odoo/debian/odoo.conf /etc/odoo12.conf
-mkdir -p $HOME/.komodo
-cat <<EOF > /etc/odoo12.conf
+cat << EOF > /etc/odoo12.conf
 [options]
 ; This is the password that allows database operations:
 admin_passwd = my_admin_passwd
@@ -64,6 +62,7 @@ db_user = odoo12
 db_password = False
 addons_path = /opt/odoo12/odoo/addons,/opt/odoo12/odoo-custom-addons
 EOF
+
 fi
 echo -e "$STEP_START[ Step 4.odoo12.service ]$STEP_END odoo12.service conf"
 cat <<EOF > /etc/systemd/system/odoo12.service
