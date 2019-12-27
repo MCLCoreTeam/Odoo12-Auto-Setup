@@ -18,7 +18,7 @@ echo "---------------"
 EOF
 echo "Create Odoo user"
 echo
-fi
+
 sudo useradd -m -d /opt/odoo12 -U -r -s /bin/bash odoo12
 EOF
 sudo apt install postgresql
@@ -29,7 +29,7 @@ wget https://builds.wkhtmltopdf.org/0.12.1.3/wkhtmltox_0.12.1.3-1~bionic_amd64.d
 EOF
 sudo apt install ./wkhtmltox_0.12.1.3-1~bionic_amd64.deb
 EOF
-fi
+
 # Installing odoo12
 sudo mkdir /opt/odoo12
 cd /opt/odoo12
@@ -48,7 +48,7 @@ deactivate
 sudo mkdir /opt/odoo12/odoo-custom-addons
 exit
 
-fi
+
 
 echo -e "$STEP_START[ Step 4.Odoo12 ]$STEP_END Odoo12 conf"
 sudo cp /opt/odoo12/odoo/debian/odoo.conf /etc/odoo12.conf
@@ -63,7 +63,6 @@ db_password = False
 addons_path = /opt/odoo12/odoo/addons,/opt/odoo12/odoo-custom-addons
 EOF
 
-fi
 echo -e "$STEP_START[ Step 4.odoo12.service ]$STEP_END odoo12.service conf"
 cat <<EOF > /etc/systemd/system/odoo12.service
 [Unit]
@@ -83,7 +82,7 @@ StandardOutput=journal+console
 [Install]
 WantedBy=multi-user.target
 EOF
-fi
+
 
 sudo systemctl daemon-reload
 sudo systemctl start odoo12
