@@ -35,6 +35,7 @@ sudo mkdir /opt/odoo12
 cd /opt/odoo12
 sudo wget https://download.odoocdn.com/12.0/nightly/deb/odoo_12.0.latest_all.deb
 sudo apt install ./odoo_12.0.latest_all.deb
+EOF
 sudo su - odoo12
 cd /opt/odoo12
 sudo python3 -m venv odoo-venv
