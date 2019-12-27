@@ -40,6 +40,6 @@ POSITION(){ if [[ $cur = up ]];then ((i--));fi
       SC(){ REFRESH;MARK;$S;cur=`ARROW`;}
       ES(){ MARK; $e "\nENTER = main menu ";$b;read;INIT;};INIT
 while [[ "$O" != " " ]]; do case $i in
-      0) S=M0;SC;if [[ $cur = "" ]];then C;$e "o0:\n$(./odooauto.sh)\n";ES;fi;;
+      0) S=M0;SC;if [[ $cur = "" ]];then C;$e "o0:\n$(./odoo12-auto.sh)\n";ES;fi;;
       1) S=M1;SC;if [[ $cur = "" ]];then C;exit 0;fi;;
 esac;POSITION;done
