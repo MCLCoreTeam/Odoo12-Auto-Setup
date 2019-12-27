@@ -1,19 +1,12 @@
 #!/usr/bin/env bash
-
-#
 # (c) Paro, 2018
-#
-
 # Marmara Blockchain (odoo12) Auto setup.
 # Aciklamalar :
-#
 # Gereksinimlere dikkat ediniz. aksi halde gereksinimleri karşılamayan sunucu özelliklerinde hata verebilir. Gereksinim karşılanmayan sunucularda hata ve zararlar tamamen kullanıcıya aittir.,
 # Requirements:
 # Min. 4 GB Free RAM
 # Min. 2 CPUs
 # OS : Ubuntu 16.04 LTS x86_64
-#
-#
 # İletişim (Contact) B. Gültekin Çetiner http://twitter.com/drcetiner
 
 
