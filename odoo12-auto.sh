@@ -8,24 +8,28 @@
 # Min. 2 CPUs
 # OS : Ubuntu 16.04 LTS x86_64
 # İletişim (Contact) B. Gültekin Çetiner http://twitter.com/drcetiner
-
+EOF
 
 
 sudo apt-get update
 sudo apt-get -y upgrade
 sudo apt install git python3-pip build-essential wget python3-dev python3-venv python3-wheel libxslt-dev libzip-dev libldap2-dev libsasl2-dev python3-setuptools node-less
 echo "---------------"
-
+EOF
 echo "Create Odoo user"
 echo
-
+fi
 sudo useradd -m -d /opt/odoo12 -U -r -s /bin/bash odoo12
+EOF
 sudo apt install postgresql
+EOF
 sudo su - postgres -c "createuser -s odoo12"
+EOF
 wget https://builds.wkhtmltopdf.org/0.12.1.3/wkhtmltox_0.12.1.3-1~bionic_amd64.deb
+EOF
 sudo apt install ./wkhtmltox_0.12.1.3-1~bionic_amd64.deb
-
-
+EOF
+fi
 # Installing odoo12
 sudo mkdir /opt/odoo12
 cd /opt/odoo12
@@ -59,7 +63,7 @@ db_user = odoo12
 db_password = False
 addons_path = /opt/odoo12/odoo/addons,/opt/odoo12/odoo-custom-addons
 EOF
-
+fi
 echo -e "$STEP_START[ Step 4.odoo12.service ]$STEP_END odoo12.service conf"
 cat <<EOF > /etc/systemd/system/odoo12.service
 [Unit]
@@ -79,7 +83,7 @@ StandardOutput=journal+console
 [Install]
 WantedBy=multi-user.target
 EOF
-
+fi
 
 sudo systemctl daemon-reload
 sudo systemctl start odoo12
